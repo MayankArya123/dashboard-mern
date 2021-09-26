@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js'></script>
+<script>
+
+</script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Month', 'Sales'],
+          ['Jan',  100],
+          ['Fab',  80],
+          ['Mar',  50],
+          ['Apr',  30],
+          ['May',  10],
+          ['Jun',  70],
+          ['Jul',  90]
+  
+        ]);
+
+        var options = {
+          title: 'Company Performance',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+
+      function drawChart2() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work',     45],
+          ['Eat',      30],
+          ['Commute',  25]
+   
+        ]);
+
+        var options = {
+          title: 'My Daily Activities',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+    <script type="text/javascript">
+      jQuery(function ($) {
+          var data1 = [12, 3, 4, 2, 12, 3, 4, 17, 22, 34, 54, 67];
+          var data2 = [3, 9, 12, 14, 22, 32, 45, 12, 67, 45, 55, 7];
+          var data3 = [23, 19, 11, 134, 242, 352, 435, 22, 637, 445, 555, 57];
+              
+          $(function () {            
+              $("#chart1").shieldChart({
+                  exportOptions: {
+                      image: false,
+                      print: false
+                  },
+                  axisY: {
+                      title: {
+                          text: "Break-Down for selected quarter"
+                      }
+                  },               
+                  dataSeries: [{
+                      seriesType: "line",                    
+                      data: data1
+                  }]
+              });
+  
+              $("#chart2").shieldChart({
+                  exportOptions: {
+                      image: false,
+                      print: false
+                  },
+                  axisY: {
+                      title: {
+                          text: "Break-Down for selected quarter"
+                      }
+                  },               
+                  dataSeries: [{
+                      seriesType: "line",
+                      data: data2
+                  }, {
+                      seriesType: "line",
+                      data: data3
+                  }]
+              });
+  
+         
+          });
+        
+      });
+  </script>
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>
